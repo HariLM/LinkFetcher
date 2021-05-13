@@ -6,10 +6,14 @@ from app.lib import getAllLinks
 @app.route("/")
 def index():
     search_param = request.args.get("search_param")
+
     data=None
+    error=""
+
     if search_param is not None:
         data,error=getAllLinks(search_param)
-    return render_template("index.html", data=data,error=error, search_param=search_param)
+
+    return render_template("index.html", data=data,error=error, search_param=search_param or "")
 
 @app.route("/test")
 def test():
