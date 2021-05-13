@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5b343f1578.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-xl">
+        <form action="/" method='GET' class='my-5'>
+            <div class="input-group mb-3">
+                <input type="url" required class="form-control border-secondary form-control-lg" name='search_param' value="{{search_param}}" placeholder="Enter URL">
+                <button class="btn border-secondary">
+                    <i class='fa fa-search'> </i>
+                </button>
+            </div>
+            <span class="text-danger">
+                {{error}}
+            </span>
+        </form>
+    
+        <table class="table table-striped">
+            {% if data!=None %}
+                <thead>
+                <tr class=''>
+                    <th scope="col">LINK URL</th>
+                    <th scope="col">LINK NAME</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for link in data %}
+                        <tr>
+                            <td>
+                                {{link[0]}}
+                            </td>
+                            <td>
+                                {{link[1]}}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            {% endif %}
+        </table>
+    </div>
+
+</body>
+
+</html>
